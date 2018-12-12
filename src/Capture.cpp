@@ -13,8 +13,7 @@
 #include <string.h>
 #include <fstream>
 #include <string>
-#include <Capture.hpp>
-#include <string>
+#include <webcam_snapshot/Capture.hpp>
 
 using namespace std;
 
@@ -31,7 +30,6 @@ int Capture::getCap(){
         perror("Failed to open device, OPEN");
         return 1;
     }
-    cout<<count;
 
     // 2. Ask the device if it can capture frames
     v4l2_capability capability;
@@ -118,11 +116,8 @@ int Capture::getCap(){
 
     // Write the data out to file
     ofstream outFile;
-//    std::string str = "Documents/catkin_ws/src/webcam_output.jpeg";
-//    string filename = "/tmp/webcam/" + to_string(count) + ".jpg";
     cout<<"file name"<< count<< endl; 
-   outFile.open(count.c_str(), ios::binary| ios::app);
- //   outFile.open(filename.c_str(), ios::binary| ios::app);
+    outFile.open(count.c_str(), ios::binary| ios::app);
     int bufPos = 0, outFileMemBlockSize = 0;  // the position in the buffer and the amoun to copy from
                                         // the buffer
     int remainingBufferSize = bufferinfo.bytesused; // the remaining buffer size, is decremented by

@@ -1,6 +1,3 @@
-//
-// Created by prodrone on 11-10-2018.
-//
 #include "webcam_snapshot/TakePicture.hpp"
 
 main()

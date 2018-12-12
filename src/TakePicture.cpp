@@ -1,11 +1,12 @@
-#include "Capture.hpp"
 #include "string"
 #include "fstream"
 #include "iostream"
 #include "sstream"
 #include "webcam_snapshot/TakePicture.hpp"
+#include "webcam_snapshot/Capture.hpp"
 
-TakePicture::TakePicture() { }
+
+TakePicture::TakePicture() {}
 /**
  * This function checks to see what pictures already exist in the file so that it doesn't
  * overwrite any of them. It then takes a picture using the function getCap of the class Capture
@@ -15,12 +16,14 @@ void TakePicture::snap()
 {
     int count = 1;
     std::stringstream file1;
+    //add path to folder before webcam_output
     file1 << "webcam_output" << count << ".jpeg";
     std::ifstream ifile(file1.str().c_str());
     bool found = ifile;
-    while (found) {
+    while(found)
+    {
         std::cout << "The file exists";
-        count = count + 1;
+        count++;
         ifile.close();
         file1.str(std::string());
         file1.clear();

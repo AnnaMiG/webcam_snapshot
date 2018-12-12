@@ -8,4 +8,5 @@ public:
     void snap();
 };
 
-#endif /// TAKEPICTURE_HPP 
+#endif
+///TAKEPICTURE_HPP
